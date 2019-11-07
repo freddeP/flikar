@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tabs for the boys...</title>
+    <style>
+    
+        main{display:flex;}
+        main div{flex:1}
+        .tabContent{
+            position:fixed;
+            top:200px;
+            width:800px;
+            border:1px solid red;
+            left:-400px;
+            margin-left:50%;
+            height:30vh;
+        }
+        
+    
+    </style>
+</head>
+<body>
+
+    <header></header>
+    <main>
+
+        <div  class="tab">
+            <button onclick = "toggleContent(this)" class="tabBtn"> tab 1 </button>
+            <div class = "tabContent">Content for tab 1</div>
+
+        </div>
+        <div  class="tab">
+                <button onclick = "toggleContent(this)" class="tabBtn"> tab 2 </button>
+            <div  class = "tabContent">Content for tab 2</div>
+        </div>
+        <div  class="tab">
+                <button onclick = "toggleContent(this)" class="tabBtn"> tab 3 </button>
+            <div  class = "tabContent">Content for tab 3</div>
+        </div>
+        <div  class="tab">
+                <button onclick = "toggleContent(this)" class="tabBtn"> tab 4 </button>
+            <div  class = "tabContent">Content for tab 4</div>
+        </div>
+
+    </main>
+    <footer></footer>
+
+    
+    <script>
+        // Göm allt innehåll vid sidladdning
+        hideTabContent();
+        let check = false;
+
+
+        function toggleContent(element){
+            
+            // hämta förälder-div
+            const parent = element.parentElement;
+            
+            // hämta nu div med aktuellt innehåll
+            const content = parent.getElementsByClassName("tabContent")[0];
+            
+            if(content.style.display === "block")
+            {
+                hideTabContent();
+            }
+            else
+            {
+                hideTabContent();
+                content.style.display = "block";
+            }
+        }
+       
+
+        // funktion som döljer allt tab-innehåll...
+        function hideTabContent(){
+            let tabContent = document.getElementsByClassName("tabContent");
+            tabContent = Array.from(tabContent);
+
+            tabContent.forEach(el=>{
+                el.style.display = "none";
+            });
+        
+        } 
+    </script>
+</body>
+</html>
